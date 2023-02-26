@@ -1,0 +1,15 @@
+<%= form_with(model: genre) do | f | %>
+
+    <%= render "shared/errors", object: genre %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+
+    <h4>Add Movies</h4>
+    <div class="checkboxes">
+        <%= f.collection_check_boxes(:movie_ids, Movie.order(:title), :id, :title) %>
+    </div>
+
+    <%= f.submit %>
+
+<% end %>
